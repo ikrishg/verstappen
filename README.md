@@ -1,5 +1,5 @@
 <!-- markdownlint-disable-next-line -->
-<div align="center"><img height="100px" width="100px" src="https://github.com/krshkun/azelf/raw/main/.github/assets/azelf.png"><br><h1>Trevenant</h1><h5>Download Images and Save them easily 🔥</h5></div>
+<div align="center"><img height="100px" width="100px" src="https://github.com/krshkun/azelf/raw/main/.github/assets/azelf.png"><br><h1>Azelf</h1><h5>Download Images and Save them easily 🔥</h5></div>
 
 ## 🌟 Installation
 
