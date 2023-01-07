@@ -56,7 +56,13 @@ export async function azelf (
     await image.toFile(`${directory}/${name}`)
     trevenant.success(`Image saved to ${directory}/${name}`)
   } catch (error) {
-    trevenant.error(new Error(typeof error === 'string' ? error : 'Unknown error'))
+    const normalizedError = ((typeof error === 'string') | (typeof error === 'Object'))
+    if (!normalizedError) {
+      return console.error(error)
+      process.exit(0)
+    } else {
+      trevenant.error(new Error(error))
+    }
   }
 }
 
