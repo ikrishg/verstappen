@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/krshkun/azelf/compare/v1.0.1...v1.1.0) (2023-01-07)
+
+
+### Features
+
+* use better suited log methods ([12674a0](https://github.com/krshkun/azelf/commit/12674a0106ccc753da16734a7e30aebe6ff4c02d))
+
 ## [1.0.1](https://github.com/krshkun/azelf/compare/v1.0.0...v1.0.1) (2023-01-07)
 
 
