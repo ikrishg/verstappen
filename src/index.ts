@@ -25,17 +25,17 @@ export async function azelf (
 
   const directory = path.resolve(options.directory)
 
-  trevenant.info(`Directory set to: ${directory}`)
+  trevenant.debug(`Directory set to: ${directory}`)
 
   if (!fs.existsSync(directory)) {
     trevenant.info(`Directory ${directory} does not exist, creating it.`)
     fs.mkdirSync(directory, { recursive: true })
-    trevenant.info(`Directory ${directory} created.`)
+    trevenant.debug(`Directory ${directory} created.`)
   }
 
   try {
     trevenant.info(`Downloading image from ${url}`)
-    trevenant.info(`Compression with ${options.quality}% quality`)
+    trevenant.debug(`Compression with ${options.quality}% quality`)
 
     let image = request.get(url, {
       encoding: null
@@ -52,7 +52,7 @@ export async function azelf (
       image = image.webp({ quality: options.quality })
     }
 
-    trevenant.info(`Saving image to ${directory}/${name}`)
+    trevenant.debug(`Saving image to ${directory}/${name}`)
     await image.toFile(`${directory}/${name}`)
     trevenant.success(`Image saved to ${directory}/${name}`)
   } catch (error) {
