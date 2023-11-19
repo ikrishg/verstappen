@@ -29,7 +29,7 @@
     "optipng-bin": "^9.0.0",
     "pngcrush-bin": "^7.0.0",
     "request": "^2.88.2",
-    "sharp": "^0.31.3",
+    "sharp": "^0.32.0",
     "svgo": "^3.0.2",
     "trevenant": "^1.0.0"
   },
