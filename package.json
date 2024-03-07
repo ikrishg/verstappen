@@ -40,7 +40,7 @@
     "@semantic-release/github": "9.2.6",
     "@semantic-release/npm": "11.0.3",
     "@semantic-release/release-notes-generator": "12.1.0",
-    "@types/node": "20.11.24",
+    "@types/node": "20.11.25",
     "@types/request": "2.48.12",
     "@types/sharp": "0.31.1",
     "@typescript-eslint/eslint-plugin": "7.1.1",
@@ -54,7 +54,7 @@
     "prettier-config-standard": "7.0.0",
     "semantic-release": "23.0.2",
     "tsc": "2.0.4",
-    "typescript": "5.3.3"
+    "typescript": "5.4.2"
   },
   "types": "types/index.d.ts",
   "files": [
