@@ -54,7 +54,7 @@
     "prettier-config-standard": "7.0.0",
     "semantic-release": "23.0.7",
     "tsc": "2.0.4",
-    "typescript": "5.4.3"
+    "typescript": "5.4.4"
   },
   "types": "types/index.d.ts",
   "files": [
