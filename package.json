@@ -43,7 +43,7 @@
     "@types/node": "20.14.9",
     "@types/request": "2.48.12",
     "@types/sharp": "0.32.0",
-    "@typescript-eslint/eslint-plugin": "7.14.1",
+    "@typescript-eslint/eslint-plugin": "7.15.0",
     "eslint": "9.6.0",
     "eslint-config-standard": "17.1.0",
     "eslint-config-love": "53.0.0",
@@ -54,7 +54,7 @@
     "prettier-config-standard": "7.0.0",
     "semantic-release": "24.0.0",
     "tsc": "2.0.4",
-    "typescript": "5.5.2"
+    "typescript": "5.5.3"
   },
   "types": "types/index.d.ts",
   "files": [
