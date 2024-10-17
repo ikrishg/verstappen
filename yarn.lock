@@ -895,10 +895,10 @@
   dependencies:
     undici-types "~5.26.4"
 
-"@types/node@20.16.11":
-  version "20.16.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.16.11.tgz#9b544c3e716b1577ac12e70f9145193f32750b33"
-  integrity sha512-y+cTCACu92FyA5fgQSAI8A1H429g7aSK2HsO7K4XYUWc4dY5IUz55JSDIYT6/VsOLfGy8vmvQYC2hfb0iF16Uw==
+"@types/node@20.16.12":
+  version "20.16.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.16.12.tgz#61cc9be049584b472fa31e465aa0ab3c090dac56"
+  integrity sha512-LfPFB0zOeCeCNQV3i+67rcoVvoN5n0NVuR2vLG0O5ySQMgchuZlC4lgz546ZOJyDtj5KIgOxy+lacOimfqZAIA==
   dependencies:
     undici-types "~6.19.2"
 
@@ -2576,10 +2576,10 @@ eslint-compat-utils@^0.1.2:
   resolved "https://registry.yarnpkg.com/eslint-compat-utils/-/eslint-compat-utils-0.1.2.tgz#f45e3b5ced4c746c127cf724fb074cd4e730d653"
   integrity sha512-Jia4JDldWnFNIru1Ehx1H5s9/yxiRHY/TimCuUc0jNexew3cF1gI6CYZil1ociakfWO3rRqFjl1mskBblB3RYg==
 
-eslint-config-love@87.0.0:
-  version "87.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-87.0.0.tgz#7446ba893ad36fe39a7c4cdd9c1817533b7eb4e2"
-  integrity sha512-WqVVU+z+OGzoo1Zl92+ZbD0ShQzYvdLDH8L5F6c432MOAWlDp7mtqg5HuAdjPAMWiKtfzB0+0hVLzcrikd5whQ==
+eslint-config-love@89.0.0:
+  version "89.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-89.0.0.tgz#3048091a578e94f619e0a53cccbf4cdfe28d8cfa"
+  integrity sha512-Rg3RJmXzg1UhUMcqRrLlK7IeZKdeg9m6yLR4DYSBK07kkgkHDFOHxfec9SWXtrDdmjIMa/G96nMOOj2XmvKcFA==
   dependencies:
     "@typescript-eslint/utils" "^8.3.0"
     eslint-plugin-import "^2.31.0"
