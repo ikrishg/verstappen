@@ -2576,10 +2576,10 @@ eslint-compat-utils@^0.1.2:
   resolved "https://registry.yarnpkg.com/eslint-compat-utils/-/eslint-compat-utils-0.1.2.tgz#f45e3b5ced4c746c127cf724fb074cd4e730d653"
   integrity sha512-Jia4JDldWnFNIru1Ehx1H5s9/yxiRHY/TimCuUc0jNexew3cF1gI6CYZil1ociakfWO3rRqFjl1mskBblB3RYg==
 
-eslint-config-love@95.0.0:
-  version "95.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-95.0.0.tgz#f904109f22868786d7200e185c1487d8d07d4d3e"
-  integrity sha512-jVMoB0/tuWu7UZ6RVGnl4WE91pbtZuMyYISMp+Zksq4nbZYlL01ZvKUZTz0Dp1sfKf7mWcnPU5wJV8FtanhpVA==
+eslint-config-love@96.0.0:
+  version "96.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-96.0.0.tgz#f4e871cb8348ea6d74cb6b10b5d6ba0a86ddff94"
+  integrity sha512-IoXpOWvPL8Me8zACmldwjknRfZ2HhA7HJ563mTaT4hEd5aPvecdOsvwTdGTJTYfeJPcZApIloMCyUJS1OjA1dA==
   dependencies:
     "@typescript-eslint/utils" "^8.3.0"
     eslint-plugin-import "^2.31.0"
