@@ -2547,10 +2547,10 @@ eslint-compat-utils@^0.5.1:
   dependencies:
     semver "^7.5.4"
 
-eslint-config-love@98.0.1:
-  version "98.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-98.0.1.tgz#72d4df84afebb9a73da8b9fbbe5c878706543d17"
-  integrity sha512-2Q0aFL0SKZEiQiXHUpNxZYGE1Mtd5yCYNaanGI1bUXtaqjOlThSV2yXpIFNQQJv8aDZ0G6xPkvqG3CqGwPqMRw==
+eslint-config-love@98.0.2:
+  version "98.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-98.0.2.tgz#4bc2d02df305954e16f039eaf000190056f5e226"
+  integrity sha512-MsFl/VvHJRo9BHmsNMJbLvSeCJv7enuDPEFSJnRp1ecYtaBvyoJgeP79F+JZ6iitzUQSRR7p7wcyuvKVlnFTIQ==
   dependencies:
     "@typescript-eslint/utils" "^8.12.0"
     eslint-plugin-eslint-comments "^3.2.0"
