@@ -2626,10 +2626,10 @@ eslint-compat-utils@^0.5.1:
   dependencies:
     semver "^7.5.4"
 
-eslint-config-love@98.0.2:
-  version "98.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-98.0.2.tgz#4bc2d02df305954e16f039eaf000190056f5e226"
-  integrity sha512-MsFl/VvHJRo9BHmsNMJbLvSeCJv7enuDPEFSJnRp1ecYtaBvyoJgeP79F+JZ6iitzUQSRR7p7wcyuvKVlnFTIQ==
+eslint-config-love@99.0.0:
+  version "99.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-99.0.0.tgz#1d6752a4ebe57f260d4f3fa77b476684c99b3d73"
+  integrity sha512-GGNNMdPmw069mbQeTzYFkCKt7zZaeBdakupQ0zJm/m+EdaVUz+qituoBx9bRI1so9O2jYbnII9Tb7Lx13PG9Kg==
   dependencies:
     "@typescript-eslint/utils" "^8.12.0"
     eslint-plugin-eslint-comments "^3.2.0"
