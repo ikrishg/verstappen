@@ -929,10 +929,10 @@
   dependencies:
     undici-types "~5.26.4"
 
-"@types/node@22.9.2":
-  version "22.9.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.9.2.tgz#51e58f2bf29cc38f529dacbb0eafca890464138e"
-  integrity sha512-wwuxAVEbsRvDD9x7buvAl7DyQ7Oj+va/d/Veug7higYzp9MF0CINbfWTBgDFMpcVwcdUiYuNmX2KfnvY3N70mw==
+"@types/node@22.9.3":
+  version "22.9.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.9.3.tgz#08f3d64b3bc6d74b162d36f60213e8a6704ef2b4"
+  integrity sha512-F3u1fs/fce3FFk+DAxbxc78DF8x0cY09RRL8GnXLmkJ1jvx3TtPdWoTT5/NiYfI5ASqXBmfqJi9dZ3gxMx4lzw==
   dependencies:
     undici-types "~6.19.8"
 
@@ -2556,10 +2556,10 @@ eslint-compat-utils@^0.5.1:
   dependencies:
     semver "^7.5.4"
 
-eslint-config-love@101.0.0:
-  version "101.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-101.0.0.tgz#961fd666d6f2b1dd2da09e01924e0b2bdc04a7bf"
-  integrity sha512-oyCmoZebz7lBNyOBJtHC2zmNgre4nqTc5gC2A3G7gE8elYt2hqQAHT8zqqsIHUQuObVn+pBnyLnvPQ1EUtnGWQ==
+eslint-config-love@107.0.0:
+  version "107.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-107.0.0.tgz#423fa4e0b55295b87f8579ebbb00641d2a36a9f9"
+  integrity sha512-cuee9Did2bL0cLM7sgkxpeOkEABmA+YkS1sf2vTxIf9XdkPBrYIr+eJDKc4vqZyrY8yCgU+lvBGqRBYOrD8klQ==
   dependencies:
     "@typescript-eslint/utils" "^8.15.0"
     eslint-plugin-eslint-comments "^3.2.0"
