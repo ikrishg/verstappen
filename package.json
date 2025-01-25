@@ -46,7 +46,7 @@
     "@typescript-eslint/eslint-plugin": "8.21.0",
     "eslint": "9.19.0",
     "eslint-config-standard": "17.1.0",
-    "eslint-config-love": "117.0.0",
+    "eslint-config-love": "118.0.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-n": "17.15.1",
     "eslint-plugin-promise": "7.2.1",
