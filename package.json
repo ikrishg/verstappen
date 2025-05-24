@@ -52,7 +52,7 @@
     "eslint-plugin-promise": "7.2.1",
     "prettier": "3.5.3",
     "prettier-config-standard": "7.0.0",
-    "semantic-release": "24.2.4",
+    "semantic-release": "24.2.5",
     "tsc": "2.0.4",
     "typescript": "5.8.3"
   },
