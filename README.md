@@ -40,4 +40,4 @@ azelf('https://i.imgur.com/0J9Q3Zm.jpg', 'image.jpg', {
 
 ## ❤ Thanks to our supporters
 
-[![GitHub Stargazers](https://reporoster.com/stars/krshkun/azelf)](https://github.com/krshkun/azelf/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/kkrishguptaa/azelf?style=for-the-badge&color=gold)](https://github.com/kkrishguptaa/azelf/stargazers)
