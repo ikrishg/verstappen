@@ -1,8 +1,23 @@
-const { azelf } = require('../');
-const path = require('path');
+const { verstappen } = require('../dist')
+const path = require('path')
 
-azelf('https://github.com/krshkun.png', 'github.webp', {
-  directory: path.join(__dirname, 'images'),
-  quality: 2,
-  webp: true
+async function main () {
+  await verstappen('https://httpbin.org/image/png', 'sample.webp', {
+    directory: path.join(__dirname, 'images'),
+    quality: 80,
+    webp: true
+  })
+
+  const buffer = await verstappen('https://httpbin.org/image/png', 'sample.webp', {
+    quality: 80,
+    webp: true,
+    output: 'buffer'
+  })
+
+  console.log('File example done; buffer length:', buffer.length)
+}
+
+main().catch((error) => {
+  console.error(error)
+  process.exit(1)
 })

@@ -1,43 +1,81 @@
-<!-- markdownlint-disable-next-line -->
-<div align="center"><img height="100px" width="100px" src="https://github.com/krshkun/azelf/raw/main/.github/assets/azelf.png"><br><h1>Azelf</h1><h5>Download Images and Save them easily 🔥</h5></div>
+# Verstappen
 
-## 🌟 Installation
+Download images from a URL, optimize them with [sharp](https://sharp.pixelplumbing.com/), and either save to disk or get a `Buffer` back.
 
-### 📦 Package Managers
+This repository was formerly **Azelf** (`ikrishg/azelf`). The npm package [`azelf`](https://www.npmjs.com/package/azelf) is unchanged until a separate publish decision is made; install from npm with `azelf` or use this repo locally after `yarn build`.
 
-#### 💝 **NPM** ![Npm Downloads](https://img.shields.io/npm/dt/azelf?style=flat-square)
+## Install
+
+From npm (published package name is still `azelf`):
 
 ```bash
 npm install azelf
 ```
 
-#### 🐱**Yarn** ![Yarn Downloads](https://img.shields.io/npm/dt/azelf?style=flat-square)
+From this repository:
 
 ```bash
-yarn add azelf
+git clone https://github.com/ikrishg/verstappen.git
+cd verstappen
+yarn install
+yarn build
 ```
 
-## ✨ Usage
+## Usage
 
-Azelf simply downloads images, optimises them and saves them to your local machine. It's that simple.
+### Save to a file (default)
 
 ```js
-const { azelf } = require('azelf')
 const path = require('path')
+const { verstappen } = require('verstappen') // or require('azelf') from npm until renamed
 
-azelf('https://i.imgur.com/0J9Q3Zm.jpg', 'image.jpg', {
+await verstappen('https://example.com/photo.jpg', 'photo.webp', {
   quality: 80,
   webp: true,
   directory: path.join(__dirname, 'images')
 })
 ```
 
-## 📞 We're Ready To Support
+Creates `images/photo.webp` (and creates `directory` if it is missing).
 
-* [ ] Discord server (Coming Soon)
-* [x] [GitHub discussions](https://github.com/krshkun/azelf/discussions)
-* [x] [Bug handler](https://github.com/krshkun/azelf/issues)
+### Return a buffer
 
-## ❤ Thanks to our supporters
+Set `output: 'buffer'` to skip writing a file. The `name` still selects the output format when `webp` is `false` (via the file extension).
 
-[![GitHub Stars](https://img.shields.io/github/stars/kkrishguptaa/azelf?style=for-the-badge&color=gold)](https://github.com/kkrishguptaa/azelf/stargazers)
+```js
+const { verstappen } = require('verstappen')
+
+const buffer = await verstappen(
+  'https://example.com/photo.jpg',
+  'photo.webp',
+  {
+    quality: 80,
+    webp: true,
+    output: 'buffer'
+  }
+)
+
+// buffer is a Node.js Buffer of the optimized image
+```
+
+### Options
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `quality` | `80` | Compression quality (1–100) for webp/jpeg/png output |
+| `webp` | `true` | Convert to WebP; when `false`, format follows `name` extension |
+| `directory` | `process.cwd()` | Output folder when `output` is `'file'` |
+| `output` | `'file'` | `'file'` writes to disk; `'buffer'` returns a `Buffer` |
+
+## Development
+
+```bash
+yarn install
+yarn build
+node examples/index.js
+```
+
+## Support
+
+- [GitHub Discussions](https://github.com/ikrishg/verstappen/discussions)
+- [Issues](https://github.com/ikrishg/verstappen/issues)
