@@ -23,18 +23,18 @@ Explain the problem and include additional details to help maintainers reproduce
 
 ## Cloning the project & creating PR
 
-**1.** Fork the repository. Click on the [![Fork this repo](https://img.icons8.com/fluency/30/000000/code-fork.png)](https://github.com/krshkun/azelf/fork) symbol at the top right corner.
+**1.** Fork the repository. Click on the [![Fork this repo](https://img.icons8.com/fluency/30/000000/code-fork.png)](https://github.com/ikrishg/verstappen/fork) symbol at the top right corner.
 
 **2.** Clone the forked repository.
 
 ```bash
-git clone https://github.com/<your-username>/azelf.git
+git clone https://github.com/<your-username>/verstappen.git
 ```
 
 **3.** Navigate to the project directory.
 
 ```bash
-cd azelf
+cd verstappen
 ```
 
 **4.** Create a new branch (naming convention- type-description-issueNo)
