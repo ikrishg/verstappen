@@ -1,9 +1,14 @@
 import sharp from 'sharp'
 import fs from 'node:fs'
 import path from 'node:path'
+import { Readable, Transform } from 'node:stream'
+import type { ReadableStream as WebReadableStream } from 'node:stream/web'
 import Trevenant from 'trevenant'
 
-export interface VerstappenOptions {
+/** Maximum download size when Content-Length is absent (50 MiB). */
+const MAX_DOWNLOAD_BYTES = 50 * 1024 * 1024
+
+export interface AzelfOptions {
   quality?: number
   webp?: boolean
   directory?: string
@@ -11,7 +16,7 @@ export interface VerstappenOptions {
 }
 
 const defaultOptions: Required<
-  Pick<VerstappenOptions, 'quality' | 'webp' | 'output' | 'directory'>
+  Pick<AzelfOptions, 'quality' | 'webp' | 'output' | 'directory'>
 > = {
   quality: 80,
   webp: true,
@@ -19,56 +24,115 @@ const defaultOptions: Required<
   directory: process.cwd()
 }
 
-async function downloadImage (url: string): Promise<Buffer> {
+async function cancelResponseBody (
+  response: Response
+): Promise<void> {
+  if (response.body !== null) {
+    await response.body.cancel()
+  }
+}
+
+function limitDownloadSize (
+  source: Readable,
+  maxBytes: number
+): Readable {
+  let total = 0
+  const limiter = new Transform({
+    transform (chunk: Buffer, _encoding, callback) {
+      total += chunk.length
+      if (total > maxBytes) {
+        callback(
+          new Error(`Download exceeded size limit of ${maxBytes} bytes`)
+        )
+        source.destroy()
+        return
+      }
+      callback(null, chunk)
+    }
+  })
+  return source.pipe(limiter)
+}
+
+async function openDownloadStream (
+  url: string,
+  maxBytes: number = MAX_DOWNLOAD_BYTES
+): Promise<Readable> {
   const response = await fetch(url)
   if (!response.ok) {
+    await cancelResponseBody(response)
     throw new Error(
       `Failed to download image from ${url}: ${response.status} ${response.statusText}`
     )
   }
-  return Buffer.from(await response.arrayBuffer())
+
+  const contentLength = response.headers.get('content-length')
+  if (contentLength !== null) {
+    const length = Number(contentLength)
+    if (Number.isFinite(length) && length > maxBytes) {
+      await cancelResponseBody(response)
+      throw new Error(
+        `Download Content-Length (${length}) exceeds limit of ${maxBytes} bytes`
+      )
+    }
+  }
+
+  if (response.body === null) {
+    throw new Error(`No response body when downloading ${url}`)
+  }
+
+  const nodeStream = Readable.fromWeb(
+    response.body as WebReadableStream<Uint8Array>
+  )
+  return limitDownloadSize(nodeStream, maxBytes)
 }
 
 function buildPipeline (
-  input: Buffer,
+  input: Readable,
   name: string,
-  options: Required<Pick<VerstappenOptions, 'quality' | 'webp'>>
+  options: Required<Pick<AzelfOptions, 'quality' | 'webp'>>
 ): sharp.Sharp {
-  const pipeline = sharp(input)
+  let pipeline = sharp()
 
   if (options.webp) {
-    return pipeline.webp({ quality: options.quality })
+    pipeline = pipeline.webp({ quality: options.quality })
+  } else {
+    const ext = path.extname(name).toLowerCase()
+    if (ext === '.png') {
+      pipeline = pipeline.png({ quality: options.quality })
+    } else if (ext === '.webp') {
+      pipeline = pipeline.webp({ quality: options.quality })
+    } else {
+      pipeline = pipeline.jpeg({ quality: options.quality })
+    }
   }
 
-  const ext = path.extname(name).toLowerCase()
-  if (ext === '.png') {
-    return pipeline.png({ quality: options.quality })
-  }
-  if (ext === '.webp') {
-    return pipeline.webp({ quality: options.quality })
-  }
-
-  return pipeline.jpeg({ quality: options.quality })
+  input.pipe(pipeline)
+  return pipeline
 }
 
-export async function verstappen (
+export async function azelf (
   url: string,
   name: string,
-  options?: VerstappenOptions & { output?: 'file' }
+  options?: AzelfOptions & { output?: 'file' }
 ): Promise<void>
-export async function verstappen (
+export async function azelf (
   url: string,
   name: string,
-  options: VerstappenOptions & { output: 'buffer' }
+  options: AzelfOptions & { output: 'buffer' }
 ): Promise<Buffer>
-export async function verstappen (
+export async function azelf (
   url: string,
   name: string,
-  options: VerstappenOptions = {}
+  options?: AzelfOptions
+): Promise<void | Buffer>
+export async function azelf (
+  url: string,
+  name: string,
+  options: AzelfOptions = {}
 ): Promise<void | Buffer> {
   const trevenant = new Trevenant()
   const resolved: Required<
-    Pick<VerstappenOptions, 'quality' | 'webp' | 'output' | 'directory'>
+    Pick<AzelfOptions, 'quality' | 'webp' | 'output' | 'directory'>
   > = {
     quality: options.quality ?? defaultOptions.quality,
     webp: options.webp ?? defaultOptions.webp,
@@ -91,8 +155,8 @@ export async function verstappen (
     trevenant.info(`Downloading image from ${url}`)
     trevenant.debug(`Compression with ${resolved.quality}% quality`)
 
-    const input = await downloadImage(url)
-    let image = buildPipeline(input, name, resolved)
+    const downloadStream = await openDownloadStream(url)
+    const image = buildPipeline(downloadStream, name, resolved)
 
     if (resolved.webp) {
       trevenant.info('Converting image to webp')
@@ -118,4 +182,7 @@ export async function verstappen (
   }
 }
 
-export default verstappen
+export default azelf
+
+/** @deprecated Use {@link AzelfOptions} */
+export type VerstappenOptions = AzelfOptions

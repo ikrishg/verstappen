@@ -1,14 +1,14 @@
-const { verstappen } = require('../dist')
+const { azelf } = require('../dist')
 const path = require('path')
 
 async function main () {
-  await verstappen('https://httpbin.org/image/png', 'sample.webp', {
+  await azelf('https://httpbin.org/image/png', 'sample.webp', {
     directory: path.join(__dirname, 'images'),
     quality: 80,
     webp: true
   })
 
-  const buffer = await verstappen('https://httpbin.org/image/png', 'sample.webp', {
+  const buffer = await azelf('https://httpbin.org/image/png', 'sample.webp', {
     quality: 80,
     webp: true,
     output: 'buffer'
